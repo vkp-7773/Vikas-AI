@@ -1,7 +1,7 @@
 import json
 import os
 
-FILE_NAME = "notes.json"
+FILE_NAME = "data/notes.json"
 
 def load_notes():
     if not os.path.exists(FILE_NAME):
