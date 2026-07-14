@@ -28,3 +28,18 @@ def show_notes():
         result += f"{i}. {note}\n"
 
     return result
+ 
+
+
+def delete_note(index):
+    notes = load_notes()
+
+    if index < 1 or index > len(notes):
+        return "Invalid note number."
+
+    notes.pop(index - 1)
+
+    with open(FILE_NAME, "w") as file:
+        json.dump(notes, file, indent=4)
+
+    return "Note delete ho gaya. ✅"

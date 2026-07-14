@@ -1,7 +1,8 @@
 from tools import get_time, get_date
 from memory import save, load
 from commands import show_help
-from notes import save_note, show_notes
+from notes import save_note, show_notes, delete_note
+
 from datetime import datetime
 
 def think(user):
@@ -74,5 +75,11 @@ def think(user):
 
     elif user == "show notes":
         return show_notes()
+    elif user.startswith("delete note "):
+        try:
+            number = int(user.replace("delete note ", ""))
+            return delete_note(number)
+        except:
+            return "Sahi note number likho."
     else:
         return "Mujhe abhi ye command nahi aati."
