@@ -1,5 +1,8 @@
+from tools import get_time, get_date
 from memory import save, load
 from commands import show_help
+from notes import save_note, show_notes
+from datetime import datetime
 
 def think(user):
 
@@ -60,6 +63,16 @@ def think(user):
 
     elif user == "help":
         return show_help()
+    elif user == "time":
+        return get_time()
+    elif user == "date":
+        return get_date()
+    elif user.startswith("note "):
+        note = user.replace("note ", "")
+        save_note(note)
+        return "Note save ho gaya. ✅"
 
+    elif user == "show notes":
+        return show_notes()
     else:
         return "Mujhe abhi ye command nahi aati."
