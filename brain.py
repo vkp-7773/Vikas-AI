@@ -1,4 +1,4 @@
-from files import create_file, write_file
+from files import create_file, write_file, read_file
 from tools import get_time, get_date
 from memory import save, load
 from commands import show_help
@@ -104,6 +104,9 @@ def think(user):
             return write_file(filename, text)
         except:
             return "Use: write file filename text"
-
+    elif user.startswith("read file "):
+        filename = user.replace("read file ", "")
+        return read_file(filename)
+ 
     else:
         return "Mujhe abhi ye command nahi aati."

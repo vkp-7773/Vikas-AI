@@ -20,5 +20,14 @@ def write_file(filename, text):
 
     with open(path, "w") as file:
         file.write(text)
+        return f"{filename} me text likh diya. ✅"
+def read_file(filename):
+    path = os.path.join(FOLDER, filename)
+
+    if not os.path.exists(path):
+        return "File nahi mili."
+
+    with open(path, "r") as file:
+        return file.read()
 
     return f"{filename} me text likh diya. ✅"
