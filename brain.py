@@ -1,4 +1,4 @@
-from files import create_file
+from files import create_file, write_file
 from tools import get_time, get_date
 from memory import save, load
 from commands import show_help
@@ -82,8 +82,28 @@ def think(user):
             return delete_note(number)
         except:
             return "Sahi note number likho."
+    elif user == "show notes":
+        return show_notes()
+
+    elif user.startswith("delete note "):
+        try:
+            number = int(user.replace("delete note ", ""))
+            return delete_note(number)
+        except:
+            return "Sahi note number likho."
+
     elif user.startswith("create file "):
         filename = user.replace("create file ", "")
         return create_file(filename)
+
+    elif user.startswith("write file "):
+        try:
+            parts = user.split(" ", 3)
+            filename = parts[2]
+            text = parts[3]
+            return write_file(filename, text)
+        except:
+            return "Use: write file filename text"
+
     else:
         return "Mujhe abhi ye command nahi aati."
