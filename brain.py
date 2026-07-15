@@ -1,5 +1,5 @@
 from history import save_history, show_history
-from files import create_file, write_file, read_file, list_files, delete_file
+from files import create_file, write_file, read_file, list_files, delete_file, append_file, create_folder, list_folders, delete_folder
 from files import append_file
 from tools import get_time, get_date
 from memory import save, load
@@ -107,15 +107,35 @@ def think(user):
             return write_file(filename, text)
         except:
             return "Use: write file filename text"
+ 
+  
     elif user.startswith("read file "):
         filename = user.replace("read file ", "")
         return read_file(filename)
+
+
     elif user == "list files":
         return list_files()
+ 
+ 
     elif user.startswith("delete file "):
         filename = user.replace("delete file ", "")
         return delete_file(filename)
-   
+ 
+ 
+    elif user.startswith("create folder"):
+        foldername = user.replace("create folder ", "")
+        return create_folder(foldername)
+ 
+ 
+    elif user == "list folders":
+        return list_folders()
+ 
+    elif user.startswith("delete folder "):
+        foldername = user.replace("delete folder ", "")
+        return delete_folder(foldername)
+ 
+ 
     elif user.startswith("append file "):
 
         data = user.replace("append file ", "")
