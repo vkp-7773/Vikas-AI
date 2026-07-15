@@ -51,3 +51,16 @@ def delete_file(filename):
     os.remove(path)
 
     return f"{filename} delete ho gayi. 🗑️"
+
+
+def append_file(filename, text):
+    path = os.path.join(FOLDER, filename)
+
+    try:
+        with open(path, "a") as file:
+            file.write("\n" + text)
+
+        return "File me new text add ho gaya."
+
+    except:
+        return "File nahi mili."

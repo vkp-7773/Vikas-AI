@@ -1,8 +1,11 @@
+from history import save_history, show_history
 from files import create_file, write_file, read_file, list_files, delete_file
+from files import append_file
 from tools import get_time, get_date
 from memory import save, load
 from commands import show_help
 from notes import save_note, show_notes, delete_note
+
 
 from datetime import datetime
 
@@ -112,5 +115,19 @@ def think(user):
     elif user.startswith("delete file "):
         filename = user.replace("delete file ", "")
         return delete_file(filename)
+   
+    elif user.startswith("append file "):
+
+        data = user.replace("append file ", "")
+
+        filename = data.split(" ")[0]
+
+        text = data.replace(filename, "").strip()
+
+        return append_file(filename, text)
+
+
+    elif user == "history":
+        return show_history()
     else:
         return "Mujhe abhi ye command nahi aati."
