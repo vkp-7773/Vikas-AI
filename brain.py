@@ -1,4 +1,4 @@
-from files import create_file, write_file, read_file
+from files import create_file, write_file, read_file, list_files, delete_file
 from tools import get_time, get_date
 from memory import save, load
 from commands import show_help
@@ -107,6 +107,10 @@ def think(user):
     elif user.startswith("read file "):
         filename = user.replace("read file ", "")
         return read_file(filename)
- 
+    elif user == "list files":
+        return list_files()
+    elif user.startswith("delete file "):
+        filename = user.replace("delete file ", "")
+        return delete_file(filename)
     else:
         return "Mujhe abhi ye command nahi aati."
