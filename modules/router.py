@@ -8,7 +8,8 @@ def get_category(command):
 
     if command.startswith("read file"):
         return "file"
-
+    if command.startswith("search file"):
+        return "file"
     if command.startswith("delete file"):
         return "file"
 
@@ -37,6 +38,21 @@ def get_category(command):
         return "history"
 
     if command.startswith("rename file"):
+        return "file"
+    
+    if command.startswith("copy file"):
+        return "file"
+
+    if command.startswith("move file"):
+        return "file"
+
+    if command.startswith("file info"):
+        return "file"
+
+    if command == "count files":
+        return "file"
+
+    if command == "open folder":
         return "file"
 
 

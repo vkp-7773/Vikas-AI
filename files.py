@@ -1,3 +1,4 @@
+import shutil
 import os
 
 FOLDER = "data/files"
@@ -129,4 +130,99 @@ def rename_file(old_name, new_name):
     os.rename(old_path, new_path)
 
     return f"{old_name} ka naam {new_name} kar diya. ✅"
+    
+    
+def search_file(keyword):
+
+    files = os.listdir(FOLDER)
+
+    result = []
+
+    for file in files:
+        if keyword.lower() in file.lower():
+            result.append(file)
+
+    if not result:
+        return "Koi file nahi mili."
+
+    output = "Search Result:\n"
+
+    for i, file in enumerate(result, start=1):
+        output += f"{i}. {file}\n"
+
+    return output
+
+
+
+
+
+
+
+def copy_file(old_name, new_name):
+
+    old_path = os.path.join(FOLDER, old_name)
+    new_path = os.path.join(FOLDER, new_name)
+
+    if not os.path.exists(old_path):
+        return "Source file nahi mili."
+
+    if os.path.exists(new_path):
+        return "Destination file pehle se maujood hai."
+
+    shutil.copy(old_path, new_path)
+
+    return f"{old_name} copy hokar {new_name} ban gayi. ✅"
+
+
+def move_file(old_name, new_name):
+
+    old_path = os.path.join(FOLDER, old_name)
+    new_path = os.path.join(FOLDER, new_name)
+
+    if not os.path.exists(old_path):
+        return "File nahi mili."
+
+    shutil.move(old_path, new_path)
+
+    return f"{old_name} move hokar {new_name} ban gayi. ✅"
+
+
+def file_info(filename):
+
+    path = os.path.join(FOLDER, filename)
+
+    if not os.path.exists(path):
+        return "File nahi mili."
+
+    size = os.path.getsize(path)
+
+    return (
+        f"File : {filename}\n"
+        f"Size : {size} Bytes"
+    )
+
+
+def count_files():
+
+    files = [
+        f for f in os.listdir(FOLDER)
+        if os.path.isfile(os.path.join(FOLDER, f))
+    ]
+
+    return f"Total Files : {len(files)}"
+
+
+def open_folder():
+
+    files = os.listdir(FOLDER)
+
+    if not files:
+        return "Folder khali hai."
+
+    output = "Folder Content:\n"
+
+    for i, file in enumerate(files, start=1):
+        output += f"{i}. {file}\n"
+
+    return output
   

@@ -9,6 +9,12 @@ from files import (
     list_folders,
     delete_folder,
     rename_file,
+    search_file,
+    copy_file,
+    move_file,
+    file_info,
+    count_files,
+    open_folder,
 )
 
 
@@ -57,6 +63,47 @@ def handle_file(command):
 
         except:
             return "Use: rename file old_name new_name"
+
+    elif command.startswith("search file "):
+        keyword = command.replace("search file ", "")
+        return search_file(keyword)
+    elif command.startswith("copy file "):
+        try:
+            parts = command.split()
+
+            old_name = parts[2]
+            new_name = parts[3]
+
+            return copy_file(old_name, new_name)
+
+        except:
+            return "Use: copy file old_name new_name"
+
+
+    elif command.startswith("move file "):
+        try:
+            parts = command.split()
+
+            old_name = parts[2]
+            new_name = parts[3]
+
+            return move_file(old_name, new_name)
+
+        except:
+            return "Use: move file old_name new_name"
+
+
+    elif command.startswith("file info "):
+        filename = command.replace("file info ", "")
+        return file_info(filename)
+
+
+    elif command == "count files":
+        return count_files()
+
+
+    elif command == "open folder":
+        return open_folder()
 
     elif command.startswith("create folder "):
         folder = command.replace("create folder ", "")
