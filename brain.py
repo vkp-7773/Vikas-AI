@@ -1,3 +1,10 @@
+from modules.router import get_category
+from modules.file_handler import handle_file
+from modules.note_handler import handle_note
+from modules.history_handler import handle_history
+
+
+
 from history import save_history, show_history
 from files import create_file, write_file, read_file, list_files, delete_file, append_file, create_folder, list_folders, delete_folder
 from files import append_file
@@ -11,8 +18,21 @@ from datetime import datetime
 
 def think(user):
 
+    category = get_category(user)
+    print("Category:", category)
+    if category == "file" or category == "folder":
+        return handle_file(user)
+    if category == "note":
+        return handle_note(user)
+ 
+    if category == "history":
+        return handle_history(user)      
+        
+        
+        
+
     if user.startswith("my name is "):
-        name = user.replace("my name is ", "")
+        
         save("name", name)
         return f"Nice to meet you {name} ❤️"
 

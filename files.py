@@ -115,4 +115,18 @@ def delete_folder(foldername):
     os.rmdir(path)
 
     return f"{foldername} folder delete ho gaya. 🗑️"
+def rename_file(old_name, new_name):
+
+    old_path = os.path.join(FOLDER, old_name)
+    new_path = os.path.join(FOLDER, new_name)
+
+    if not os.path.exists(old_path):
+        return "Purani file nahi mili."
+
+    if os.path.exists(new_path):
+        return "Nayi file pehle se maujood hai."
+
+    os.rename(old_path, new_path)
+
+    return f"{old_name} ka naam {new_name} kar diya. ✅"
   
