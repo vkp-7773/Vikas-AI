@@ -1,21 +1,20 @@
 from brain import think
 from history import save_history
-from language import understand
+
 print("=" * 40)
 print("🤖 VIKAS AI")
 print("=" * 40)
 
 while True:
 
-    user = input("You : ").lower()
+    user = input("You : ")
+
+    if user.lower() == "bye":
+        print("Vikas AI : Bye Bhai 👋")
+        break
 
     save_history(user)
 
-    command = understand(user)
-
-    answer = think(command)
+    answer = think(user)
 
     print("Vikas AI :", answer)
-
-    if user == "bye":
-        break

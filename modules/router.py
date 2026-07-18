@@ -8,6 +8,10 @@ def get_category(command):
 
     if command.startswith("read file"):
         return "file"
+    if command == "list files":
+    return "file"
+    
+
     if command.startswith("search file"):
         return "file"
     if command.startswith("delete file"):

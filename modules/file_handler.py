@@ -115,5 +115,7 @@ def handle_file(command):
     elif command.startswith("delete folder "):
         folder = command.replace("delete folder ", "")
         return delete_folder(folder)
-
+    elif command == "list files":
+        print("DEBUG: list files block")
+        return list_files()
     return None

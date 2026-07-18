@@ -5,7 +5,7 @@ def understand(user):
 
     user = user.lower().strip()
 
-    # Remove common extra words
+    # Common extra words remove
     remove_words = [
         "bhai ",
         "please ",
@@ -18,9 +18,7 @@ def understand(user):
         if user.startswith(word):
             user = user.replace(word, "", 1)
 
-
-    # Pattern Matching
-
+    # Pattern matching
     for pattern, command in PATTERNS.items():
 
         if user.startswith(pattern):
@@ -28,90 +26,39 @@ def understand(user):
             text = user.replace(pattern, "").strip()
 
             if command == "create file":
-
-                if "." not in text:
+                if text and "." not in text:
                     text += ".txt"
 
-            return command + " " + text
+            return (command + " " + text).strip()
 
+    # Direct commands
+    direct_commands = [
+        "create file",
+        "write file",
+        "read file",
+        "delete file",
+        "append file",
+        "rename file",
+        "copy file",
+        "move file",
+        "search file",
+        "file info",
+        "create folder",
+        "delete folder",
+        "list files",
+        "list folders",
+        "count files",
+        "open folder",
+        "show notes",
+        "history",
+    ]
 
-
-    # Direct file commands
-
-    if user.startswith("create file "):
-
-        filename = user.replace("create file ", "")
-
-        if "." not in filename:
-            filename += ".txt"
-
-        return "create file " + filename
-
-
-
-    if user.startswith("copy file "):
-
-        return user
-
-
-    if user.startswith("move file "):
-
-        return user
-
-
-    if user.startswith("rename file "):
-
-        return user
-
-
-    if user.startswith("delete file "):
-
-        return user
-
-
-    if user.startswith("read file "):
-
-        return user
-
-
-    if user.startswith("write file "):
-
-        return user
-
-
-
-    # Search
-
-    if "search" in user or "find" in user:
-
-        words = user.split()
-
-        for word in words:
-
-            if word not in ["search", "find", "file"]:
-
-                return "search file " + word
-
-
-
-    # Folder
-
-    if "folder" in user and "banao" in user:
-
-        name = user.replace("folder banao", "").strip()
-
-        return "create folder " + name
-
-
+    for cmd in direct_commands:
+        if user.startswith(cmd):
+            return user
 
     # Notes
-
-    if "note" in user:
-
-        text = user.replace("note", "").strip()
-
-        return "note " + text
-
-
+    if user.startswith("note "):
+        return user
 
     return user

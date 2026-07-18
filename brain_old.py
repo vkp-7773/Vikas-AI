@@ -5,15 +5,13 @@ from modules.executor import execute
 
 def think(user_input):
 
-    # Step 1: Convert user language to command
     command = understand(user_input)
 
-    # Step 2: Detect intent
     intent = detect_intent(command)
 
-    # Debug (baad me hata denge)
     print("Command :", command)
     print("Intent  :", intent)
 
-    # Step 3: Execute command
-    return execute(command, intent)
+    result = execute(command, intent)
+
+    return result
