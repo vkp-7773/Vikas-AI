@@ -1,3 +1,4 @@
+from modules.todo_handler import handle_todo
 from modules.file_handler import handle_file
 from modules.note_handler import handle_note
 from modules.history_handler import handle_history
@@ -20,6 +21,14 @@ def execute(command, intent):
     # History
     if intent.startswith("HISTORY_"):
         result = handle_history(command)
+        if result is not None:
+            return result
+
+    # Todo
+
+    elif intent.startswith("TODO_"):
+        result = handle_todo(command)
+
         if result is not None:
             return result
 

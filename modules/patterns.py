@@ -1,57 +1,65 @@
 PATTERNS = {
 
-    # File Create
-    "ek file banao": "create file",
-    "file banao": "create file",
-    "meri file banao": "create file",
-    "make file": "create file",
+    # Greetings
+    "hello": "hello",
+    "hi": "hi",
+    "hey": "hey",
+    "how are you": "how are you",
+    "good morning": "good morning",
+    "good night": "good night",
+    "thanks": "thanks",
+    "thank you": "thanks",
+
+    # Time & Date
+    "time": "time",
+    "date": "date",
+
+    # Memory
+    "my name is": "my name is",
+    "what is my name": "what is my name",
+
+    # Fun
+    "joke": "joke",
+    "tell me a joke": "joke",
+
+    "quote": "quote",
+    "tell me a quote": "quote",
+
+    "motivate me": "motivate me",
+    "motivation": "motivate me",
+
+    # Help
+    "help": "help",
+
+    # File
     "create file": "create file",
+    "file banao": "create file",
+    "ek file banao": "create file",
 
-    # File Read
     "read file": "read file",
-    "open file": "read file",
-    "khol file": "read file",
-
-    # File Write
     "write file": "write file",
-    "likho file": "write file",
-
-    # File Delete
+    "append file": "append file",
     "delete file": "delete file",
-    "remove file": "delete file",
-    "hata file": "delete file",
-
-    # File Rename
     "rename file": "rename file",
-    "change name file": "rename file",
-
-    # File Copy
     "copy file": "copy file",
-
-    # File Move
     "move file": "move file",
-
-    # File Search
     "search file": "search file",
-    "find file": "search file",
-    "dhundo file": "search file",
+    "file info": "file info",
+    "list files": "list files",
+    "count files": "count files",
+    "open folder": "open folder",
 
-    # Notes
-    "note bana do": "note",
-    "meri note bana do": "note",
-    "save note": "note",
-    "create note": "note",
-
-    # Folder Create
-    "folder banao": "create folder",
-    "ek folder banao": "create folder",
-    "mera folder banao": "create folder",
+    # Folder
     "create folder": "create folder",
-
-    # Folder List/Delete
+    "folder banao": "create folder",
     "list folders": "list folders",
     "delete folder": "delete folder",
 
-    # File List
-    "list files": "list files",
+    # Notes
+    "note": "note",
+    "show notes": "show notes",
+    "delete note": "delete note",
+
+    # History
+    "history": "history",
 }

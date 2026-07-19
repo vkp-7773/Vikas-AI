@@ -1,31 +1,34 @@
 INTENTS = {
-    # Files
     "create file": "FILE_CREATE",
     "write file": "FILE_WRITE",
     "read file": "FILE_READ",
-    "list files": "FILE_LIST",
-    "delete file": "FILE_DELETE",
     "append file": "FILE_APPEND",
+    "delete file": "FILE_DELETE",
     "rename file": "FILE_RENAME",
     "copy file": "FILE_COPY",
     "move file": "FILE_MOVE",
     "search file": "FILE_SEARCH",
     "file info": "FILE_INFO",
     "count files": "FILE_COUNT",
-    "open folder": "FILE_OPEN_FOLDER",
 
-    # Folders
     "create folder": "FOLDER_CREATE",
-    "list folders": "FOLDER_LIST",
     "delete folder": "FOLDER_DELETE",
+    "list files": "FILE_LIST",
+    "list folders": "FOLDER_LIST",
 
-    # Notes
     "note": "NOTE_CREATE",
     "show notes": "NOTE_SHOW",
-    "delete note": "NOTE_DELETE",
 
-    # History
     "history": "HISTORY_SHOW",
+
+    "learn": "KNOWLEDGE",
+    "show knowledge": "KNOWLEDGE",
+    "delete knowledge": "KNOWLEDGE",
+    "knowledge count": "KNOWLEDGE",
+    "todo": "TODO_ADD",
+    "show todos": "TODO_SHOW",
+    "delete todo": "TODO_DELETE",
+    "clear todos": "TODO_CLEAR",
 }
 
 
